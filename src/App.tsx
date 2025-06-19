@@ -1,7 +1,3 @@
-import { Authenticated, Unauthenticated, useQuery } from "convex/react";
-import { api } from "../convex/_generated/api";
-import { SignInForm } from "./SignInForm";
-import { SignOutButton } from "./SignOutButton";
 import { Toaster } from "sonner";
 
 export default function App() {
@@ -23,7 +19,11 @@ export default function App() {
                 <a href="#contact" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
               </div>
             </div>
-            <SignOutButton />
+            <div className="flex items-center space-x-4">
+              <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors">
+                Login
+              </button>
+            </div>
           </div>
         </div>
       </nav>
@@ -288,7 +288,10 @@ export default function App() {
             </div>
             <div className="bg-gray-800 p-8 rounded-lg">
               <h3 className="text-2xl font-bold text-white mb-6">Send Message</h3>
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={(e) => {
+                e.preventDefault();
+                alert('Thank you for your message! This is a demo form. Please contact us directly at cdev@anciitk.co.in');
+              }}>
                 <div>
                   <input
                     type="text"
